@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jis项目文档</title>
+	<!-- docsify -->
+	<link href="https://cdn.bootcdn.net/ajax/libs/docsify/4.13.1/themes/vue.min.css" rel="stylesheet">
+</head>
+<body>
+	<!--  docsify开始渲染文档之前对话框 -->
+	<div data-app id="main">文档加载中......</div>
+	<script>
+		window.$docsify = {
+		    el: '#main',
+			loadSidebar: true,
+			markdown: {
+			    renderer: {
+			      code: function(code, lang) {
+			        if (lang === "mermaid") {
+			          return (
+			            '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+			          );
+			        }
+			        return this.origin.code.apply(this, arguments);
+			      }
+			    }
+			}
+		};
+	</script>
+	<!-- docsify -->
+	<script src="https://cdn.bootcdn.net/ajax/libs/docsify/4.13.1/docsify.min.js"></script>
+	<!-- prism -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-php.min.js"></script>
+</body>
+</html>
